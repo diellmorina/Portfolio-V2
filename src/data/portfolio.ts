@@ -11,18 +11,18 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  {
-    id: 1,
-    title: "Apex Athletic",
-    description:
-      "Modern athletic brand e-commerce platform featuring product showcase, multilingual support (English/Albanian), and user authentication system for a professional shopping experience.",
-    image: "/projects/Apex-Athletics-Preview.webp",
-    url: "https://apex-athletic.vercel.app/",
-    repo: "https://github.com/Diellmorina4/APEX-ATHLETIC",
-    tag: "E-Commerce",
-    languages: ["HTML", "CSS", "JavaScript", "React"],
-    featured: true,
-  },
+  // {
+  //   id: 1,
+  //   title: "Apex Athletic",
+  //   description:
+  //     "Modern athletic brand e-commerce platform featuring product showcase, multilingual support (English/Albanian), and user authentication system for a professional shopping experience.",
+  //   image: "/projects/Apex-Athletics-Preview.webp",
+  //   url: "https://apex-athletic.vercel.app/",
+  //   repo: "https://github.com/Diellmorina4/APEX-ATHLETIC",
+  //   tag: "E-Commerce",
+  //   languages: ["HTML", "CSS", "JavaScript", "React"],
+  //   featured: true,
+  // },
   {
     id: 9,
     title: "Pulse AI",
