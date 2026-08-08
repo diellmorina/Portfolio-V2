@@ -2,10 +2,10 @@ import { useRevealGroup, useInView } from "@/hooks/use-reveal";
 import { useEffect, useState } from "react";
 
 const stats = [
-  { value: 10, suffix: "+", label: "Projects shipped" },
+  { value: 10, suffix: "", label: "Projects shipped" },
   { value: 11, suffix: "", label: "Technologies used" },
-  { value: 9, suffix: "", label: "Live websites" },
-  { value: 4, suffix: "", label: "Client businesses" },
+  { value: 10, suffix: "", label: "Live websites" },
+  { value: 5, suffix: "", label: "Client businesses" },
 ];
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
