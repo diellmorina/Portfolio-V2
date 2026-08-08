@@ -22,7 +22,7 @@ export const projects: Project[] = [
   //   tag: "E-Commerce",
   //   languages: ["HTML", "CSS", "JavaScript", "React"],
   //   featured: true,
-  // },
+  // }
   {
     id: 9,
     title: "Pulse AI",
