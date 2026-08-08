@@ -71,7 +71,7 @@ export function ProjectCard({
             className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.06]"
             style={{ transform: "translate3d(var(--px, 0px), var(--py, 0px), 0)" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-transparent opacity-85 transition-opacity duration-500 group-hover:opacity-95" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
           <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
             style={{ background: "radial-gradient(60% 60% at 50% 100%, color-mix(in oklab, var(--primary) 18%, transparent), transparent 70%)" }}
           />

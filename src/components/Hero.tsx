@@ -1,12 +1,12 @@
 import { ArrowDown, Download, ArrowUpRight } from "lucide-react";
 
 const techLabels = [
-  { label: "React", className: "left-[2%] top-[12%]", delay: "0s", duration: "11s" },
-  { label: "JavaScript", className: "right-[4%] top-[8%]", delay: "1.4s", duration: "13s" },
-  { label: "HTML", className: "left-[8%] bottom-[16%]", delay: "0.8s", duration: "10s" },
-  { label: "CSS", className: "right-[10%] bottom-[24%]", delay: "2.1s", duration: "12s" },
-  { label: "GitHub", className: "right-[2%] top-[46%]", delay: "0.4s", duration: "14s" },
-  { label: "Vercel", className: "left-[1%] top-[52%]", delay: "1.8s", duration: "12.5s" },
+  { label: "React", className: "left-[4%] top-[13%]", delay: "0s", duration: "11s" },
+  { label: "JavaScript", className: "right-[6%] top-[10%]", delay: "1.4s", duration: "13s" },
+  { label: "HTML", className: "left-[6%] bottom-[18%]", delay: "0.8s", duration: "10s" },
+  { label: "CSS", className: "right-[9%] bottom-[24%]", delay: "2.1s", duration: "12s" },
+  { label: "GitHub", className: "right-[5%] top-[46%]", delay: "0.4s", duration: "14s" },
+  { label: "Vercel", className: "left-[4%] top-[56%]", delay: "1.8s", duration: "12.5s" },
 ];
 
 const titleWords = [
