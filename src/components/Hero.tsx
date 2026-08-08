@@ -28,20 +28,19 @@ export function Hero() {
         {techLabels.map((t) => (
           <span
             key={t.label}
-            className="animate-float-soft absolute rounded-full border border-border bg-surface/50 px-3.5 py-1.5 font-mono text-xs text-muted-foreground/80 backdrop-blur-sm"
+            className={`animate-float-soft absolute rounded-full border border-border bg-surface/50 px-3.5 py-1.5 font-mono text-xs text-muted-foreground/80 backdrop-blur-sm ${t.className}`}
             style={
               {
                 "--float-delay": t.delay,
                 "--float-duration": t.duration,
               } as React.CSSProperties
             }
-            data-pos={t.className}
           >
-            <span className={`absolute ${t.className}`} />
             {t.label}
           </span>
         ))}
       </div>
+
 
       <div className="relative mx-auto w-full max-w-6xl px-5 sm:px-8">
         <div className="max-w-3xl">
