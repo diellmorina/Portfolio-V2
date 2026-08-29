@@ -41,12 +41,13 @@ export function About() {
           </h2>
           <p
             data-reveal
-            className="reveal mt-6 max-w-lg leading-relaxed text-muted-foreground"
+            className="reveal mt-6 max-w-lg leading-7 text-muted-foreground sm:text-base"
             style={{ "--reveal-delay": "160ms" } as React.CSSProperties}
           >
-            I am a Front-End Developer from Kosovo, currently studying at the Digital School of
-            Kosovo. I build responsive websites using HTML, CSS, and JavaScript, and I am exploring
-            React while sharpening my skills in modern UI, performance, and accessibility.
+            I am a Front-End Developer from Kosovo, focused on building modern, responsive websites
+            and polished digital experiences. I enjoy creating interfaces that feel clean, fast, and
+            intuitive across devices, while continuing to sharpen my skills in UI, performance, and
+            accessibility.
           </p>
 
           <div

@@ -81,12 +81,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Front-End Developer from Kosovo building polished, high-performance, accessible web experiences.",
+          "Front-End Developer from Kosovo building polished, high-performance, accessible web experiences for modern brands.",
       },
       { name: "author", content: "Diell Morina" },
       { name: "theme-color", content: "#0a170f" },
+      { name: "robots", content: "index, follow" },
       { property: "og:type", content: "website" },
+      { property: "og:title", content: "Diell Morina — Front-End Developer" },
+      {
+        property: "og:description",
+        content:
+          "Front-End Developer from Kosovo building polished, high-performance, accessible web experiences for modern brands.",
+      },
+      { property: "og:url", content: "https://www.diellmorina.dev/" },
+      { property: "og:image", content: "https://www.diellmorina.dev/logo.svg" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Diell Morina — Front-End Developer" },
+      {
+        name: "twitter:description",
+        content:
+          "Front-End Developer from Kosovo building polished, high-performance, accessible web experiences for modern brands.",
+      },
+      { name: "twitter:image", content: "https://www.diellmorina.dev/logo.svg" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -96,6 +112,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
       },
+      { rel: "canonical", href: "https://www.diellmorina.dev/" },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
     ],
   }),

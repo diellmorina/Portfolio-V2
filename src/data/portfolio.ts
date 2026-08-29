@@ -122,6 +122,23 @@ export const projects: Project[] = [
   },
 ];
 
+export const experienceFocus = [
+  "Frontend development",
+  "Responsive design",
+  "Modern UI",
+  "Interactive web experiences",
+  "Performance and usability",
+];
+
+export const currentlyLearning = [
+  "React",
+  "JavaScript",
+  "Node.js",
+  "Web Performance",
+  "Cybersecurity",
+  "Modern UI/UX",
+];
+
 export const skillCategories = [
   {
     id: "frontend",
@@ -136,12 +153,12 @@ export const skillCategories = [
   {
     id: "tools",
     label: "Tools",
-    items: ["GitHub", "Vercel", "Netlify"],
+    items: ["Git", "Vercel", "VS Code"],
   },
   {
     id: "other",
     label: "Other",
-    items: ["UI/UX", "Responsive Design", "Accessibility", "Performance"],
+    items: ["Responsive Design", "UI/UX", "Web Performance"],
   },
 ];
 

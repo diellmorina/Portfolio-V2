@@ -22,7 +22,7 @@ const titleWords = [
 
 export function Hero() {
   return (
-    <section id="home" className="relative flex min-h-[100svh] items-center overflow-hidden pt-28 pb-20">
+    <section id="home" className="relative flex min-h-[90svh] items-center overflow-hidden pt-28 pb-16 sm:min-h-[100svh] sm:pb-20">
       {/* floating tech labels — desktop only, extremely subtle */}
       <div aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">
         {techLabels.map((t) => (
@@ -65,7 +65,7 @@ export function Hero() {
             Diell Morina — Front-End Developer
           </p>
 
-          <h1 className="mt-5 text-[2.6rem] leading-[1.03] sm:text-6xl lg:text-[4.6rem]">
+          <h1 className="mt-5 max-w-4xl text-[2.6rem] leading-[0.96] tracking-[-0.05em] sm:text-6xl lg:text-[4.6rem]">
             {titleWords.map((word, i) => (
               <span
                 key={word + i}
@@ -78,7 +78,7 @@ export function Hero() {
           </h1>
 
           <p
-            className="animate-rise-in mt-7 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+            className="animate-rise-in mt-7 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8"
             style={{ "--rise-delay": "820ms" } as React.CSSProperties}
           >
             I translate ideas into responsive interfaces with clean code, crisp design, and subtle
