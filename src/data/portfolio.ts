@@ -126,7 +126,7 @@ export const skillCategories = [
   {
     id: "frontend",
     label: "Frontend",
-    items: ["HTML", "CSS", "JavaScript", "React", "Bootstrap", "TypeScript"],
+    items: ["HTML", "CSS", "JavaScript", "React", "Bootstrap"],
   },
   {
     id: "backend",
