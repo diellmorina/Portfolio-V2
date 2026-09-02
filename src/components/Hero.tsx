@@ -101,9 +101,8 @@ export function Hero() {
               />
             </a>
             <a
-              href="https://www.diellmorina.dev/Diell%20Morina%20-%20CV.pdf"
-              target="_blank"
-              rel="noreferrer"
+              href="/Diell%20Morina%20-%20CV.pdf"
+              download="Diell Morina - CV.pdf"
               className="group inline-flex items-center gap-2 rounded-full border border-border bg-surface/40 px-6 py-3.5 text-sm font-semibold text-foreground backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
             >
               <Download size={16} className="transition-transform duration-300 group-hover:translate-y-0.5" />
