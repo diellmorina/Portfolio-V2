@@ -1,4 +1,5 @@
 import { ArrowDown, Download, ArrowUpRight } from "lucide-react";
+import cvAsset from "@/assets/cv.pdf.asset.json";
 
 const techLabels = [
   { label: "React", className: "left-[4%] top-[13%]", delay: "0s", duration: "11s" },
@@ -101,7 +102,7 @@ export function Hero() {
               />
             </a>
             <a
-              href="/Diell%20Morina%20-%20CV.pdf"
+              href={cvAsset.url}
               download="Diell Morina - CV.pdf"
               className="group inline-flex items-center gap-2 rounded-full border border-border bg-surface/40 px-6 py-3.5 text-sm font-semibold text-foreground backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
             >
