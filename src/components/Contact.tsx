@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowUpRight, Check, Copy, Github, Mail, Phone } from "lucide-react";
+import { ArrowUpRight, Check, Copy, Github, Mail, Phone, Send } from "lucide-react";
 import { useRevealGroup } from "@/hooks/use-reveal";
 import { contact } from "@/data/portfolio";
 
@@ -29,7 +29,10 @@ export function Contact() {
       />
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <div className="glass-panel rounded-[2rem] p-8 sm:p-14">
-          <p data-reveal className="reveal font-mono text-xs uppercase tracking-[0.28em] text-primary">
+          <p
+            data-reveal
+            className="reveal font-mono text-xs uppercase tracking-[0.28em] text-primary"
+          >
             Contact
           </p>
           <h2
@@ -96,6 +99,62 @@ export function Contact() {
               GitHub
             </a>
           </div>
+
+          <form
+            action="https://formspree.io/f/mbgjayon"
+            method="POST"
+            className="mt-10 grid gap-5 border-t border-border pt-8 sm:grid-cols-2"
+          >
+            <div className="grid gap-2">
+              <label htmlFor="contact-name" className="text-sm font-semibold">
+                Name
+              </label>
+              <input
+                id="contact-name"
+                name="name"
+                type="text"
+                required
+                autoComplete="name"
+                className="rounded-xl border border-border bg-surface/50 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary"
+                placeholder="Your name"
+              />
+            </div>
+            <div className="grid gap-2">
+              <label htmlFor="contact-email" className="text-sm font-semibold">
+                Email
+              </label>
+              <input
+                id="contact-email"
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                className="rounded-xl border border-border bg-surface/50 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary"
+                placeholder="you@example.com"
+              />
+            </div>
+            <div className="grid gap-2 sm:col-span-2">
+              <label htmlFor="contact-message" className="text-sm font-semibold">
+                Message
+              </label>
+              <textarea
+                id="contact-message"
+                name="message"
+                required
+                rows={5}
+                className="resize-y rounded-xl border border-border bg-surface/50 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary"
+                placeholder="Tell me about your project"
+              />
+            </div>
+            <input type="hidden" name="_subject" value="New portfolio contact" />
+            <button
+              type="submit"
+              className="inline-flex w-fit items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_55px_-20px_oklch(0.878_0.165_158_/_0.9)]"
+            >
+              Send message
+              <Send size={16} />
+            </button>
+          </form>
         </div>
       </div>
     </section>
