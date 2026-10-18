@@ -24,6 +24,17 @@ export const projects: Project[] = [
   //   featured: true,
   // },
   {
+    id: 11,
+    title: "CyberGuard",
+    description:
+      "CyberGuard is a cybersecurity education platform with interactive tools, real-world scenarios, and gamified learning. It includes a password security lab, link safety analyzer, phishing awareness training, a cyber academy with 15+ topics, and quizzes with XP and achievements, all running locally and privately.",
+    image: "/projects/cyberguard.png",
+    url: "https://cyberguard-learner.vercel.app/",
+    repo: "https://github.com/diellmorina/CYBERGUARD",
+    tag: "Education",
+    languages: ["HTML", "CSS", "JavaScript"],
+  },
+  {
     id: 1,
     title: "Pulse AI",
     description:
