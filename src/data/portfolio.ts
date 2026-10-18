@@ -120,17 +120,6 @@ export const projects: Project[] = [
     tag: "Charity",
     languages: ["HTML", "CSS", "JavaScript"],
   },
-  {
-    id: 8, 
-    title: "CyberGuard Learner",
-    description:
-      "CyberGuard Learner is an educational platform focused on cybersecurity. It provides interactive lessons, tutorials, and resources to help users learn about online security, safe browsing practices, and protecting personal information.",
-    image: "/projects/cyberguard.png",
-    url:"https://cyberguard-learner.vercel.app/",
-    repo: "https://github.com/diellmorina/CYBERGUARD.git",
-    tag: "Education",
-    languages: ["HTML", "CSS", "JavaScript"],
-  }
 ];
 
 export const experienceFocus = [
