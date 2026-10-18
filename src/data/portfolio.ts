@@ -24,7 +24,7 @@ export const projects: Project[] = [
   //   featured: true,
   // },
   {
-    id: 9,
+    id: 1,
     title: "Pulse AI",
     description:
       "Pulse AI is a modern AI workspace concept designed to bring multiple AI-powered tools into one seamless experience. The project focuses on a clean dark interface, responsive design, and a futuristic visual identity across desktop and mobile. It includes concepts for AI chat, document intelligence, image generation, website building, and code assistance.",
@@ -120,6 +120,17 @@ export const projects: Project[] = [
     tag: "Charity",
     languages: ["HTML", "CSS", "JavaScript"],
   },
+  {
+    id: 8, 
+    title: "CyberGuard Learner",
+    description:
+      "CyberGuard Learner is an educational platform focused on cybersecurity. It provides interactive lessons, tutorials, and resources to help users learn about online security, safe browsing practices, and protecting personal information.",
+    image: "/projects/cyberguard.png",
+    url:"https://cyberguard-learner.vercel.app/",
+    repo: "https://github.com/diellmorina/CYBERGUARD.git",
+    tag: "Education",
+    languages: ["HTML", "CSS", "JavaScript"],
+  }
 ];
 
 export const experienceFocus = [
