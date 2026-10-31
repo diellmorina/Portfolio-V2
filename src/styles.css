@@ -91,7 +91,7 @@
     oklch(0.906 0.132 95) 100%
   );
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
-  --hero-shade: linear-gradient(90deg, var(--background) 0%, color-mix(in oklab, var(--background) 97%, transparent) 22%, color-mix(in oklab, var(--background) 72%, transparent) 53%, color-mix(in oklab, var(--background) 24%, transparent) 100%);
+  --hero-shade: linear-gradient(90deg, var(--background) 0%, color-mix(in oklab, var(--background) 98%, transparent) 32%, color-mix(in oklab, var(--background) 90%, transparent) 53%, color-mix(in oklab, var(--background) 30%, transparent) 100%);
   --hero-floor: linear-gradient(0deg, var(--background), transparent 45%);
   --grid-line: color-mix(in oklab, var(--foreground) 3%, transparent);
   --shadow-button: 0 12px 36px -16px color-mix(in oklab, var(--primary) 65%, transparent);

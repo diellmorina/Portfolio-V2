@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { ArrowUpRight, Github, X } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
 import type { Project } from "@/data/portfolio";
 import {
   Dialog,
@@ -174,14 +174,6 @@ export function ProjectCard({
                     {project.title}
                   </DialogTitle>
                 </div>
-                <Button variant="outline" size="icon"
-                  type="button"
-                  onClick={() => setOpen(false)}
-                  className="rounded-full bg-surface/40 text-muted-foreground"
-                  aria-label="Close project details"
-                >
-                  <X size={16} />
-                </Button>
               </div>
               <DialogDescription className="mt-4 max-w-lg text-sm leading-7 text-muted-foreground">
                 {project.description}
