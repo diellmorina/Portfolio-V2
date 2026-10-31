@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Portfolio frontend
+- Keep coordinated page motion in PortfolioMotion and global CSS, with browser-only effects initialized after hydration; this keeps SSR stable and reduced-motion behavior consistent.
+- Hero project previews reuse the portfolio data and local images; this keeps showcased work accurate without extra network dependencies.

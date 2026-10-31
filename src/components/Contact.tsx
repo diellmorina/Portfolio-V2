@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowUpRight, Check, Copy, Github, Mail, Phone, Send } from "lucide-react";
 import { useRevealGroup } from "@/hooks/use-reveal";
 import { contact } from "@/data/portfolio";
+import { Button } from "@/components/ui/button";
 
 export function Contact() {
   const ref = useRevealGroup<HTMLDivElement>();
@@ -18,17 +19,9 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-24 sm:py-32" ref={ref}>
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[420px]"
-        style={{
-          background:
-            "radial-gradient(50% 60% at 50% 100%, color-mix(in oklab, var(--primary) 14%, transparent), transparent 70%)",
-        }}
-      />
+    <section id="contact" className="contact-band relative py-24 sm:py-32" ref={ref}>
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="glass-panel rounded-[2rem] p-8 sm:p-14">
+        <div>
           <p
             data-reveal
             className="reveal font-mono text-xs uppercase tracking-[0.28em] text-primary"
@@ -58,7 +51,7 @@ export function Contact() {
           >
             <a
               href={`mailto:${contact.email}`}
-              className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_55px_-20px_oklch(0.878_0.165_158_/_0.9)]"
+              className="magnetic-link group inline-flex max-w-full flex-wrap items-center gap-2 rounded-full bg-primary px-5 py-4 text-sm font-semibold text-primary-foreground sm:gap-3 sm:px-7"
             >
               <Mail size={17} />
               {contact.email}
@@ -67,14 +60,14 @@ export function Contact() {
                 className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
               />
             </a>
-            <button
+            <Button variant="outline"
               type="button"
               onClick={copyEmail}
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/50 px-5 py-4 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
+              className="magnetic-link h-auto rounded-full bg-surface/50 px-5 py-4"
             >
               {copied ? <Check size={16} className="text-primary" /> : <Copy size={16} />}
               {copied ? "Copied!" : "Copy email"}
-            </button>
+            </Button>
           </div>
 
           <div
@@ -147,13 +140,13 @@ export function Contact() {
               />
             </div>
             <input type="hidden" name="_subject" value="New portfolio contact" />
-            <button
+            <Button
               type="submit"
-              className="inline-flex w-fit items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_55px_-20px_oklch(0.878_0.165_158_/_0.9)]"
+              className="magnetic-link h-auto w-fit rounded-full px-6 py-3"
             >
               Send message
               <Send size={16} />
-            </button>
+            </Button>
           </form>
         </div>
       </div>
