@@ -1,139 +1,73 @@
-import { ArrowDown, Download, ArrowUpRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowDown, Download, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import cvAsset from "@/assets/cv.pdf.asset.json";
+import { projects } from "@/data/portfolio";
+import { Button } from "@/components/ui/button";
+import { usePrefersReducedMotion } from "@/hooks/use-reveal";
 
-const techLabels = [
-  { label: "React", className: "left-[4%] top-[13%]", delay: "0s", duration: "11s" },
-  { label: "JavaScript", className: "right-[6%] top-[10%]", delay: "1.4s", duration: "13s" },
-  { label: "HTML", className: "left-[6%] bottom-[18%]", delay: "0.8s", duration: "10s" },
-  { label: "CSS", className: "right-[9%] bottom-[24%]", delay: "2.1s", duration: "12s" },
-  { label: "GitHub", className: "right-[5%] top-[46%]", delay: "0.4s", duration: "14s" },
-  { label: "Vercel", className: "left-[4%] top-[56%]", delay: "1.8s", duration: "12.5s" },
-];
-
-const titleWords = [
-  "Building",
-  "polished,",
-  "high-performance",
-  "web",
-  "experiences",
-  "for",
-  "modern",
-  "brands.",
-];
+const showcase = projects.slice(0, 3);
 
 export function Hero() {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const reduced = usePrefersReducedMotion();
+  const current = showcase[active];
+
+  useEffect(() => {
+    if (reduced || paused) return;
+    const timer = window.setInterval(() => {
+      if (!document.hidden && window.scrollY < window.innerHeight) {
+        setActive((value) => (value + 1) % showcase.length);
+      }
+    }, 6500);
+    return () => window.clearInterval(timer);
+  }, [reduced, paused]);
+
   return (
-    <section id="home" className="relative flex min-h-[90svh] items-center overflow-hidden pt-28 pb-16 sm:min-h-[100svh] sm:pb-20">
-      {/* floating tech labels — desktop only, extremely subtle */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">
-        {techLabels.map((t) => (
-          <span
-            key={t.label}
-            className={`animate-float-soft absolute rounded-full border border-border bg-surface/50 px-3.5 py-1.5 font-mono text-xs text-muted-foreground/80 backdrop-blur-sm ${t.className}`}
-            style={
-              {
-                "--float-delay": t.delay,
-                "--float-duration": t.duration,
-              } as React.CSSProperties
-            }
-          >
-            {t.label}
-          </span>
+    <section id="home" className="portfolio-hero relative isolate overflow-hidden border-b border-border">
+      <div aria-hidden className="hero-media absolute inset-0 -z-10">
+        {showcase.map((project, index) => (
+          <img key={project.id} src={project.image} alt="" fetchPriority={index === 0 ? "high" : "auto"}
+            className={`hero-project-image ${active === index ? "is-active" : ""}`} />
         ))}
+        <div className="hero-media-shade absolute inset-0" />
       </div>
 
-
-      <div className="relative mx-auto w-full max-w-6xl px-5 sm:px-8">
-        <div className="max-w-3xl">
-          <div
-            className="animate-rise-in inline-flex items-center gap-2.5 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5"
-            style={{ "--rise-delay": "60ms" } as React.CSSProperties}
-          >
-            <span className="relative flex h-2 w-2">
-              <span
-                className="absolute inline-flex h-full w-full rounded-full bg-primary"
-                style={{ animation: "pulse-ring 2.4s ease-out infinite" }}
-              />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-            </span>
-            <span className="font-mono text-xs tracking-wide text-primary">Available for work</span>
-          </div>
-
-          <p
-            className="animate-rise-in mt-8 font-mono text-sm uppercase tracking-[0.28em] text-muted-foreground"
-            style={{ "--rise-delay": "140ms" } as React.CSSProperties}
-          >
-            Diell Morina — Front-End Developer
-          </p>
-
-          <h1 className="mt-5 max-w-4xl text-[2.6rem] leading-[0.96] tracking-[-0.05em] sm:text-6xl lg:text-[4.6rem]">
-            {titleWords.map((word, i) => (
-              <span
-                key={word + i}
-                className="animate-rise-in mr-[0.28em] inline-block"
-                style={{ "--rise-delay": `${220 + i * 70}ms` } as React.CSSProperties}
-              >
-                {i >= 5 ? <span className="text-gradient-brand">{word}</span> : word}
-              </span>
-            ))}
-          </h1>
-
-          <p
-            className="animate-rise-in mt-7 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8"
-            style={{ "--rise-delay": "820ms" } as React.CSSProperties}
-          >
-            I translate ideas into responsive interfaces with clean code, crisp design, and subtle
-            motion. My work focuses on accessible websites, elegant product pages, and memorable
-            digital experiences.
-          </p>
-
-          <div
-            className="animate-rise-in mt-9 flex flex-wrap items-center gap-3"
-            style={{ "--rise-delay": "920ms" } as React.CSSProperties}
-          >
-            <a
-              href="#projects"
-              className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_50px_-20px_oklch(0.878_0.165_158_/_0.85)]"
-            >
-              See Projects
-              <ArrowUpRight
-                size={17}
-                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              />
-            </a>
-            <a
-              href={cvAsset.url}
-              download="Diell Morina - CV.pdf"
-              className="group inline-flex items-center gap-2 rounded-full border border-border bg-surface/40 px-6 py-3.5 text-sm font-semibold text-foreground backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
-            >
-              <Download size={16} className="transition-transform duration-300 group-hover:translate-y-0.5" />
-              Download My CV
-            </a>
-          </div>
-
-          <div
-            className="animate-rise-in mt-12 flex flex-wrap gap-2"
-            style={{ "--rise-delay": "1020ms" } as React.CSSProperties}
-          >
-            {["HTML", "CSS", "Bootstrap", "JavaScript", "React"].map((t) => (
-              <span
-                key={t}
-                className="rounded-lg border border-border bg-surface/40 px-3 py-1.5 font-mono text-xs text-muted-foreground transition-colors duration-300 hover:border-primary/40 hover:text-primary"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
+      <div className="relative mx-auto w-full max-w-6xl px-5 pt-32 pb-12 sm:px-8 sm:pt-40 sm:pb-16">
+        <div className="animate-rise-in flex items-center gap-3 font-mono text-xs text-primary">
+          <span className="availability-dot h-2 w-2 rounded-full bg-primary" />
+          Available for work <span className="ml-3 hidden text-muted-foreground sm:inline">Kosovo · Front-End Developer</span>
         </div>
-      </div>
+        <h1 className="hero-name mt-8 font-display font-semibold leading-[0.95]">
+          <span className="hero-word block">Diell</span>
+          <span className="hero-word hero-word-accent block text-primary">Morina<span className="text-gold">.</span></span>
+        </h1>
+        <p className="animate-rise-in mt-7 max-w-xl font-display text-2xl font-medium leading-tight sm:text-3xl" style={{ "--rise-delay": "350ms" } as React.CSSProperties}>
+          Polished code. <span className="text-muted-foreground">Memorable experiences.</span>
+        </p>
+        <p className="animate-rise-in mt-4 max-w-lg text-sm leading-7 text-muted-foreground sm:text-base" style={{ "--rise-delay": "480ms" } as React.CSSProperties}>
+          I translate ideas into responsive interfaces with clean code, crisp design, and considered motion.
+        </p>
+        <div className="animate-rise-in mt-8 flex flex-wrap gap-3" style={{ "--rise-delay": "600ms" } as React.CSSProperties}>
+          <Button asChild size="lg" className="magnetic-link h-12 rounded-full px-6"><a href="#projects">Explore my work <ArrowUpRight /></a></Button>
+          <Button asChild variant="outline" size="lg" className="magnetic-link h-12 rounded-full bg-background/70 px-6"><a href={cvAsset.url} download="Diell Morina - CV.pdf"><Download /> Download My CV</a></Button>
+        </div>
 
-      <a
-        href="#about"
-        aria-label="Scroll to about"
-        className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 text-muted-foreground transition-colors hover:text-primary sm:block"
-      >
-        <ArrowDown size={20} className="animate-float-soft" />
-      </a>
+        {current && <div className="hero-showcase mt-12 flex items-center justify-between gap-5 border-t border-border pt-5 sm:mt-16"
+          onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} onFocusCapture={() => setPaused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false); }}>
+          <a href="#about" aria-label="Scroll to about" className="group flex items-center gap-3 font-mono text-xs text-muted-foreground"><ArrowDown className="scroll-arrow h-4 w-4 text-primary" /><span className="hidden sm:inline">SCROLL TO EXPLORE</span></a>
+          <div className="flex min-w-0 items-center gap-3 sm:gap-5">
+            <a key={current.id} href={current.url} target="_blank" rel="noreferrer" className="animate-rise-in min-w-0 text-right">
+              <span className="block font-mono text-[10px] text-muted-foreground">IN THE SPOTLIGHT / 0{active + 1}</span>
+              <span className="mt-1 flex items-center justify-end gap-2 text-sm font-medium">{current.title}<ArrowUpRight size={15} className="text-primary" /></span>
+            </a>
+            <div className="flex gap-1">
+              <Button variant="outline" size="icon" className="rounded-full bg-background/70" aria-label="Previous spotlight project" onClick={() => setActive((active + showcase.length - 1) % showcase.length)}><ChevronLeft /></Button>
+              <Button variant="outline" size="icon" className="rounded-full bg-background/70" aria-label="Next spotlight project" onClick={() => setActive((active + 1) % showcase.length)}><ChevronRight /></Button>
+            </div>
+          </div>
+        </div>}
+      </div>
     </section>
   );
 }

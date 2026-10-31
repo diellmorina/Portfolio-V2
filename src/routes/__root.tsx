@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -34,7 +35,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -94,7 +95,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Front-End Developer from Kosovo building polished, high-performance, accessible web experiences for modern brands.",
       },
       { property: "og:url", content: "https://www.diellmorina.dev/" },
-      { property: "og:image", content: "https://www.diellmorina.dev/logo.svg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Diell Morina — Front-End Developer" },
       {
@@ -102,7 +102,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Front-End Developer from Kosovo building polished, high-performance, accessible web experiences for modern brands.",
       },
-      { name: "twitter:image", content: "https://www.diellmorina.dev/logo.svg" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

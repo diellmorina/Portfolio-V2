@@ -10,6 +10,7 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { SiteBackground } from "@/components/SiteBackground";
 import { CustomCursor } from "@/components/CustomCursor";
+import { ScrollProgress, TechnologyMarquee } from "@/components/PortfolioMotion";
 
 const title = "Diell Morina — Front-End Developer";
 const description =
@@ -26,11 +27,9 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.diellmorina.dev/" },
-      { property: "og:image", content: "https://www.diellmorina.dev/logo.svg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
-      { name: "twitter:image", content: "https://www.diellmorina.dev/logo.svg" },
     ],
     links: [{ rel: "canonical", href: "https://www.diellmorina.dev/" }],
   }),
@@ -43,8 +42,10 @@ function Index() {
       <SiteBackground />
       <CustomCursor />
       <Navbar />
+      <ScrollProgress />
       <main>
         <Hero />
+        <TechnologyMarquee />
         <About />
         <Stats />
         <Experience />
