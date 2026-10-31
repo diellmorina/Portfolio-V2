@@ -1,11 +1,10 @@
 import { useRef, useState } from "react";
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight, Github, Maximize2 } from "lucide-react";
 import type { Project } from "@/data/portfolio";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -77,23 +76,20 @@ export function ProjectCard({
               alt={`${project.title} website preview`}
               loading="lazy"
               decoding="async"
-              className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+              className="h-full w-full object-cover object-top transition-transform duration-700 ease-out"
               style={{ transform: "translate3d(var(--px, 0px), var(--py, 0px), 0) scale(var(--preview-scale, 1))" }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
-            <div
-              className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-              style={{
-                background:
-                  "radial-gradient(60% 60% at 50% 100%, color-mix(in oklab, var(--primary) 18%, transparent), transparent 70%)",
-              }}
-            />
+            <div className="project-preview-shade pointer-events-none absolute inset-0" />
             <span className="absolute left-5 top-5 rounded-full border border-border bg-background/70 px-3 py-1 font-mono text-xs text-muted-foreground backdrop-blur-sm">
               {project.tag}
             </span>
             <span className="absolute right-5 top-4 font-display text-4xl font-bold text-foreground/15 transition-colors duration-500 group-hover:text-primary/35">
               {String(index + 1).padStart(2, "0")}
             </span>
+            <Button variant="ghost" type="button" onClick={() => setOpen(true)}
+              aria-label={`Preview ${project.title}`} className="project-preview-trigger absolute inset-0 h-full w-full rounded-none p-0 hover:bg-transparent">
+              <span className="preview-expand absolute right-5 bottom-5 grid h-11 w-11 place-items-center rounded-full border border-border bg-background/80 text-primary backdrop-blur-md"><Maximize2 /></span>
+            </Button>
           </div>
 
           {/* body */}
@@ -164,6 +160,9 @@ export function ProjectCard({
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="max-w-2xl border border-border bg-background/95 p-0 shadow-xl sm:rounded-lg">
           <div className="max-h-[85vh] overflow-y-auto">
+            <div className="border-b border-border bg-surface">
+              <img src={project.image} alt={`${project.title} full website preview`} className="aspect-[16/9] w-full object-cover object-top" />
+            </div>
             <div className="border-b border-border p-6 sm:p-8">
               <div className="flex items-start justify-between gap-4">
                 <div>
@@ -181,11 +180,6 @@ export function ProjectCard({
             </div>
 
             <div className="space-y-6 p-6 sm:p-8">
-              <section>
-                <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-primary">Overview</p>
-                <p className="mt-3 text-sm leading-7 text-muted-foreground">{project.description}</p>
-              </section>
-
               <section>
                 <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-primary">Technologies</p>
                 <div className="mt-3 flex flex-wrap gap-2">

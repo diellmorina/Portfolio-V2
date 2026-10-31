@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Check, Copy, Github, Mail, Phone, Send } from "lucide-react";
 import { useRevealGroup } from "@/hooks/use-reveal";
 import { contact } from "@/data/portfolio";
@@ -7,14 +7,19 @@ import { Button } from "@/components/ui/button";
 export function Contact() {
   const ref = useRevealGroup<HTMLDivElement>();
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
+  const copyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => { if (copyTimer.current) clearTimeout(copyTimer.current); }, []);
 
   const copyEmail = async () => {
     try {
       await navigator.clipboard.writeText(contact.email);
+      if (copyTimer.current) clearTimeout(copyTimer.current);
+      setCopyError(false);
       setCopied(true);
-      setTimeout(() => setCopied(false), 1800);
+      copyTimer.current = setTimeout(() => setCopied(false), 1800);
     } catch {
-      /* clipboard unavailable */
+      setCopyError(true);
     }
   };
 
@@ -70,6 +75,10 @@ export function Contact() {
             </Button>
           </div>
 
+          <p role="status" aria-live="polite" className="mt-3 min-h-5 text-sm text-muted-foreground">
+            {copied ? "Email address copied." : copyError ? "Couldn't copy the address. You can email me using the link above." : ""}
+          </p>
+
           <div
             data-reveal
             className="reveal mt-10 flex flex-wrap gap-6 border-t border-border pt-8"
@@ -96,9 +105,10 @@ export function Contact() {
           <form
             action="https://formspree.io/f/mbgjayon"
             method="POST"
-            className="mt-10 grid gap-5 border-t border-border pt-8 sm:grid-cols-2"
+            data-reveal
+            className="reveal contact-form mt-10 grid gap-5 border-t border-border pt-8 sm:grid-cols-2"
           >
-            <div className="grid gap-2">
+            <div className="contact-field grid gap-2">
               <label htmlFor="contact-name" className="text-sm font-semibold">
                 Name
               </label>
@@ -112,7 +122,7 @@ export function Contact() {
                 placeholder="Your name"
               />
             </div>
-            <div className="grid gap-2">
+            <div className="contact-field grid gap-2">
               <label htmlFor="contact-email" className="text-sm font-semibold">
                 Email
               </label>
@@ -126,7 +136,7 @@ export function Contact() {
                 placeholder="you@example.com"
               />
             </div>
-            <div className="grid gap-2 sm:col-span-2">
+            <div className="contact-field grid gap-2 sm:col-span-2">
               <label htmlFor="contact-message" className="text-sm font-semibold">
                 Message
               </label>
