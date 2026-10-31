@@ -8,6 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 function useTilt(strength = 6) {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -15,7 +16,7 @@ function useTilt(strength = 6) {
   const onMove = (e: React.MouseEvent) => {
     const el = ref.current;
     if (!el) return;
-    if (window.matchMedia("(pointer: coarse)").matches) return;
+    if (window.matchMedia("(pointer: coarse)").matches || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const rect = el.getBoundingClientRect();
     const px = (e.clientX - rect.left) / rect.width - 0.5;
     const py = (e.clientY - rect.top) / rect.height - 0.5;
@@ -53,7 +54,6 @@ export function ProjectCard({
     <>
       <article
         data-reveal
-        data-cursor="view"
         className="reveal group"
         style={{ "--reveal-delay": `${Math.min(index, 5) * 90}ms` } as React.CSSProperties}
       >
@@ -61,7 +61,7 @@ export function ProjectCard({
           ref={ref}
           onMouseMove={onMove}
           onMouseLeave={onLeave}
-          className={`card-glow relative overflow-hidden rounded-3xl border border-border bg-card/70 backdrop-blur-sm ${
+          className={`card-glow project-tilt relative overflow-hidden rounded-lg border border-border bg-card/70 backdrop-blur-sm ${
             featured ? "lg:grid lg:grid-cols-[1.15fr_1fr]" : ""
           }`}
           style={{
@@ -71,14 +71,14 @@ export function ProjectCard({
           }}
         >
           {/* preview */}
-          <div className={`relative overflow-hidden ${featured ? "aspect-[16/10] lg:aspect-auto lg:h-full" : "aspect-[16/10]"}`}>
+          <div className={`project-preview relative overflow-hidden ${featured ? "aspect-[16/10] lg:aspect-auto lg:h-full" : "aspect-[16/10]"}`}>
             <img
               src={project.image}
               alt={`${project.title} website preview`}
               loading="lazy"
               decoding="async"
               className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-              style={{ transform: "translate3d(var(--px, 0px), var(--py, 0px), 0)" }}
+              style={{ transform: "translate3d(var(--px, 0px), var(--py, 0px), 0) scale(var(--preview-scale, 1))" }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
             <div
@@ -129,7 +129,7 @@ export function ProjectCard({
                 href={project.url}
                 target="_blank"
                 rel="noreferrer"
-                className="group/btn inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-20px_oklch(0.878_0.165_158_/_0.9)]"
+                className="magnetic-link group/btn inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground"
               >
                 Live Demo
                 <ArrowUpRight
@@ -137,14 +137,14 @@ export function ProjectCard({
                   className="transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
                 />
               </a>
-              <button
+              <Button variant="outline"
                 type="button"
                 onClick={() => setOpen(true)}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/40 px-5 py-2.5 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
+                className="magnetic-link h-auto rounded-full bg-surface/40 px-5 py-2.5"
                 aria-label={`Open details for ${project.title}`}
               >
                 Details
-              </button>
+              </Button>
               {project.repo && (
                 <a
                   href={project.repo}
@@ -162,7 +162,7 @@ export function ProjectCard({
       </article>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-2xl border border-border bg-background/95 p-0 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] sm:rounded-[1.75rem]">
+        <DialogContent className="max-w-2xl border border-border bg-background/95 p-0 shadow-xl sm:rounded-lg">
           <div className="max-h-[85vh] overflow-y-auto">
             <div className="border-b border-border p-6 sm:p-8">
               <div className="flex items-start justify-between gap-4">
@@ -174,14 +174,14 @@ export function ProjectCard({
                     {project.title}
                   </DialogTitle>
                 </div>
-                <button
+                <Button variant="outline" size="icon"
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-border bg-surface/40 text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                  className="rounded-full bg-surface/40 text-muted-foreground"
                   aria-label="Close project details"
                 >
                   <X size={16} />
-                </button>
+                </Button>
               </div>
               <DialogDescription className="mt-4 max-w-lg text-sm leading-7 text-muted-foreground">
                 {project.description}

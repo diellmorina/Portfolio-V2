@@ -40,8 +40,8 @@ export function CustomCursor() {
         dotRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
       }
       const target = e.target as HTMLElement | null;
-      if (target?.closest("[data-cursor='view']")) setState("view");
-      else if (target?.closest("a, button, [role='button'], input, textarea")) setState("hover");
+      if (target?.closest("a, button, [role='button'], input, textarea")) setState("hover");
+      else if (target?.closest("[data-cursor='view']")) setState("view");
       else setState("default");
     };
 
@@ -62,10 +62,12 @@ export function CustomCursor() {
 
     window.addEventListener("pointermove", onMove, { passive: true });
     document.addEventListener("pointerleave", onLeave);
+    window.addEventListener("blur", onLeave);
     frame = requestAnimationFrame(loop);
     return () => {
       window.removeEventListener("pointermove", onMove);
       document.removeEventListener("pointerleave", onLeave);
+      window.removeEventListener("blur", onLeave);
       cancelAnimationFrame(frame);
     };
   }, [enabled]);
