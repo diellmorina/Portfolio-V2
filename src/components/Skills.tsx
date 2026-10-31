@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useRevealGroup } from "@/hooks/use-reveal";
 import { skillCategories } from "@/data/portfolio";
+import { Button } from "@/components/ui/button";
 
 export function Skills() {
   const ref = useRevealGroup<HTMLDivElement>();
-  const [active, setActive] = useState(skillCategories[0]!.id);
-  const current = skillCategories.find((c) => c.id === active) ?? skillCategories[0]!;
+  const [active, setActive] = useState(skillCategories[0]?.id ?? "frontend");
+  const current = skillCategories.find((c) => c.id === active) ?? skillCategories[0];
+  if (!current) return null;
 
   return (
     <section id="skills" className="relative py-24 sm:py-32" ref={ref}>
@@ -21,7 +23,8 @@ export function Skills() {
           style={{ "--reveal-delay": "90ms" } as React.CSSProperties}
         >
           {skillCategories.map((c) => (
-            <button
+            <Button
+              variant="ghost"
               key={c.id}
               type="button"
               onClick={() => setActive(c.id)}
@@ -33,7 +36,7 @@ export function Skills() {
               }`}
             >
               {c.label}
-            </button>
+            </Button>
           ))}
         </div>
 
@@ -41,14 +44,14 @@ export function Skills() {
           {current.items.map((item, i) => (
             <div
               key={item}
-              className="animate-rise-in card-glow group flex items-center gap-4 rounded-2xl border border-border bg-card/60 p-5 backdrop-blur-sm"
+              className="animate-rise-in card-glow skill-tile group flex items-center gap-4 rounded-lg border border-border bg-card/60 p-5 backdrop-blur-sm"
               style={{ "--rise-delay": `${i * 60}ms` } as React.CSSProperties}
             >
               <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-primary/25 bg-primary/10 font-mono text-sm font-semibold text-primary transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
                 {item.slice(0, 2).toUpperCase()}
               </span>
               <div className="min-w-0">
-                <p className="truncate font-medium">{item}</p>
+                <p className="font-medium">{item}</p>
                 <p className="font-mono text-xs text-muted-foreground">{current.label}</p>
               </div>
             </div>

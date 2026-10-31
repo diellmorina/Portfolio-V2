@@ -24,11 +24,6 @@ export function About() {
     <section id="about" className="relative py-24 sm:py-32" ref={ref}>
       <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_1fr] lg:gap-16">
         <div className="relative">
-          <span
-            aria-hidden
-            className="animate-float-soft absolute -left-6 top-10 hidden h-24 w-24 rounded-full blur-2xl lg:block"
-            style={{ background: "color-mix(in oklab, var(--primary) 20%, transparent)" }}
-          />
           <p data-reveal className="reveal font-mono text-xs uppercase tracking-[0.28em] text-primary">
             About Me
           </p>
