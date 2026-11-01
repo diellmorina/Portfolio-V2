@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, Check, Copy, Github, Mail, Phone, Send } from "lucide-react";
+import { ArrowUpRight, Check, Copy, Github, Linkedin, Mail, Phone, Send } from "lucide-react";
 import { useRevealGroup } from "@/hooks/use-reveal";
 import { contact } from "@/data/portfolio";
 import { Button } from "@/components/ui/button";
@@ -99,6 +99,15 @@ export function Contact() {
             >
               <Github size={15} />
               GitHub
+            </a>
+            <a
+              href={contact.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="link-underline inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+            >
+              <Linkedin size={15} />
+              LinkedIn
             </a>
           </div>
 

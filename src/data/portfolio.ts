@@ -178,4 +178,5 @@ export const contact = {
   phone: "+383 45 141 733",
   phoneHref: "tel:+38345141733",
   github: "https://github.com/diellmorina",
+  linkedin: "https://www.linkedin.com/in/diell-morina",
 };
