@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, Check, Copy, Github, Mail, Phone, Send } from "lucide-react";
+import { ArrowUpRight, Check, Copy, Github, Linkedin, Mail, Phone, Send } from "lucide-react";
 import { useRevealGroup } from "@/hooks/use-reveal";
 import { contact } from "@/data/portfolio";
 import { Button } from "@/components/ui/button";
