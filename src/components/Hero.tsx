@@ -5,7 +5,10 @@ import { projects } from "@/data/portfolio";
 import { Button } from "@/components/ui/button";
 import { usePrefersReducedMotion } from "@/hooks/use-reveal";
 
-const showcase = projects.slice(0, 3);
+const spotlightIds = [11, 4, 3]; // CyberGuard, Nissi Barber Shop, SUVATIMI-H
+const showcase = spotlightIds
+  .map((id) => projects.find((project) => project.id === id))
+  .filter((project): project is (typeof projects)[number] => Boolean(project));
 
 export function Hero() {
   const [active, setActive] = useState(0);
