@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowDown, Download, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import cvAsset from "@/assets/cv.pdf.asset.json";
+import brandMountains from "@/assets/brand-mountains.webp.asset.json";
 import { projects } from "@/data/portfolio";
 import { Button } from "@/components/ui/button";
 import { usePrefersReducedMotion } from "@/hooks/use-reveal";
