@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowDown, Download, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import cvAsset from "@/assets/cv.pdf.asset.json";
+import brandMountains from "@/assets/brand-mountains.webp.asset.json";
 import { projects } from "@/data/portfolio";
 import { Button } from "@/components/ui/button";
 import { usePrefersReducedMotion } from "@/hooks/use-reveal";
@@ -29,10 +30,7 @@ export function Hero() {
   return (
     <section id="home" className="portfolio-hero relative isolate overflow-hidden border-b border-border">
       <div aria-hidden className="hero-media absolute inset-0 -z-10">
-        {showcase.map((project, index) => (
-          <img key={project.id} src={project.image} alt="" fetchPriority={index === 0 ? "high" : "auto"}
-            className={`hero-project-image ${active === index ? "is-active" : ""}`} />
-        ))}
+        <img src={brandMountains.url} alt="" fetchPriority="high" className="hero-brand-background" />
         <div className="hero-media-shade absolute inset-0" />
       </div>
 
