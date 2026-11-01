@@ -30,6 +30,7 @@ export function Hero() {
   return (
     <section id="home" className="portfolio-hero relative isolate overflow-hidden border-b border-border">
       <div aria-hidden className="hero-media absolute inset-0 -z-10">
+        <img src={brandMountains.url} alt="" className="hero-brand-background" />
         {showcase.map((project, index) => (
           <img key={project.id} src={project.image} alt="" fetchPriority={index === 0 ? "high" : "auto"}
             className={`hero-project-image ${active === index ? "is-active" : ""}`} />
