@@ -8,4 +8,4 @@
 - [ ] Add real pointer-following button motion with reduced-motion support.
 - [ ] Make project previews open visual detail windows.
 - [ ] Improve contact copy feedback and animated form emphasis.
-- [ ] Verify the finished interactions and preview health.
+- [x] Verify the finished interactions and preview health.
