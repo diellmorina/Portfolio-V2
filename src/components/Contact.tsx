@@ -100,6 +100,15 @@ export function Contact() {
               <Github size={15} />
               GitHub
             </a>
+            <a
+              href={contact.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="link-underline inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+            >
+              <Linkedin size={15} />
+              LinkedIn
+            </a>
           </div>
 
           <form
