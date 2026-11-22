@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { ArrowDown, Download, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
-import cvAsset from "@/assets/cv.pdf.asset.json";
+import { ArrowDown, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { CvDownload } from "@/components/CvDownload";
 import brandMountains from "@/assets/brand-mountains.webp.asset.json";
 import { projects } from "@/data/portfolio";
 import { Button } from "@/components/ui/button";
@@ -51,7 +51,7 @@ export function Hero() {
         </p>
         <div className="animate-rise-in mt-8 flex flex-wrap gap-3" style={{ "--rise-delay": "600ms" } as React.CSSProperties}>
           <Button asChild size="lg" className="magnetic-link h-12 rounded-full px-6"><a href="#projects">Explore my work <ArrowUpRight /></a></Button>
-          <Button asChild variant="outline" size="lg" className="magnetic-link h-12 rounded-full bg-background/70 px-6"><a href={cvAsset.url} download="Diell Morina - CV.pdf"><Download /> Download My CV</a></Button>
+          <CvDownload />
         </div>
 
         {current && <div className="hero-showcase mt-12 flex items-center justify-between gap-5 border-t border-border pt-5 sm:mt-16"

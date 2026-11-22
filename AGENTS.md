@@ -12,3 +12,4 @@
 ## Portfolio frontend
 - Keep coordinated page motion in PortfolioMotion and global CSS, with browser-only effects initialized after hydration; this keeps SSR stable and reduced-motion behavior consistent.
 - Hero project previews reuse the portfolio data and local images; this keeps showcased work accurate without extra network dependencies.
+- Prepare CV downloads as browser blob URLs from the published Lovable asset origin after hydration; external hosts do not serve Lovable asset paths, and preloading preserves download activation.
