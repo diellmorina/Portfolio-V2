@@ -24,6 +24,16 @@ export const projects: Project[] = [
   //   featured: true,
   // },
   {
+    id: 12,
+    title: "Përtej Klasave",
+    description:
+      "Përtej Klasave is the official podcast platform of the “4 Deshmoret” school, featuring honest conversations with students, teachers and guests. Visitors can watch episodes, explore the latest and most-viewed shows, like their favorites, and join the discussion with a free account.",
+    image: "/projects/pertej-klasave.webp",
+    url: "https://pertejklasave.vercel.app/",
+    tag: "Podcast",
+    languages: ["HTML", "CSS", "JavaScript", "React", "TypeScript"],
+  },
+  {
     id: 11,
     title: "CyberGuard",
     description:
